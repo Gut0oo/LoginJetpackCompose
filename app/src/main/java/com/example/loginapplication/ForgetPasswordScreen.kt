@@ -1,8 +1,5 @@
-package com.example.loginapplication.ForgetPassword
+package com.example.loginapplication
 
-import android.graphics.Color
-import android.graphics.drawable.shapes.Shape
-import android.hardware.lights.Light
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,16 +9,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Shapes
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -39,13 +33,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.loginapplication.ui.theme.Black
 import com.example.loginapplication.ui.theme.Blue
-import com.example.loginapplication.ui.theme.Gray
 import com.example.loginapplication.ui.theme.White
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ForgetPassword(){
     var email by remember { mutableStateOf(value = "") }
+    var new by remember { mutableStateOf(value = "") }
+    var confirm by remember { mutableStateOf(value = "") }
 
     Column(
         modifier = Modifier
@@ -120,6 +115,32 @@ fun ForgetPassword(){
                     )
                 }
             )
+            OutlinedTextField(
+                value = new,
+                onValueChange = {
+                    new = it
+                },
+
+                label = {
+                    Text(
+                        text = "New password"
+                    )
+                }
+            )
+
+            OutlinedTextField(
+                value = confirm,
+                onValueChange = {
+                    confirm = it
+                },
+
+                label = {
+                    Text(
+                        text = "Confirm Password"
+                    )
+                }
+            )
+
 
             Button(
                 onClick = {
@@ -133,7 +154,7 @@ fun ForgetPassword(){
                     .padding(35.dp)
             ) {
                 Text(
-                    text = "Send Email",
+                    text = "Update",
                     fontWeight = FontWeight.Bold
                 )
             }

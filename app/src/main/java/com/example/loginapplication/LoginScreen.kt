@@ -37,8 +37,8 @@ import com.example.loginapplication.ui.theme.White
 
 @Composable
 fun Login(){
-    val email by remember { mutableStateOf("") }
-    val password by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
 
     var checked by remember { mutableStateOf(false) }
 
@@ -66,7 +66,7 @@ fun Login(){
         OutlinedTextField(
             value = email,
             onValueChange = {
-
+                email = it
             },
             label = {
 
@@ -87,7 +87,7 @@ fun Login(){
         OutlinedTextField(
             value = password,
             onValueChange = {
-
+                password = it
             },
             label = {
                 Row{
