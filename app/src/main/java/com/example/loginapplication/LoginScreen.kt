@@ -1,6 +1,7 @@
 package com.example.loginapplication
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -32,11 +33,13 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.loginapplication.ui.theme.Blue
 import com.example.loginapplication.ui.theme.White
 
 @Composable
-fun Login(){
+fun Login(navController: NavController){
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -121,7 +124,11 @@ fun Login(){
 
             Text(
                 text = "Forgot Password?",
-                textDecoration = TextDecoration.Underline
+                textDecoration = TextDecoration.Underline,
+
+                modifier = Modifier.clickable{
+                    navController.navigate(route = "forgot_password")
+                }
             )
         }
 
@@ -147,13 +154,17 @@ fun Login(){
 
         Text(
             text = "Register",
-            textDecoration = TextDecoration.Underline
+            textDecoration = TextDecoration.Underline,
+
+            modifier = Modifier.clickable{
+                navController.navigate(route = "register_screen")
+            }
         )
     }
 }
 
-@Preview
-@Composable
-fun LoginPreview(){
-    Login()
-}
+//@Preview
+//@Composable
+//fun LoginPreview(){
+//    Login(navController = NavController)
+//}

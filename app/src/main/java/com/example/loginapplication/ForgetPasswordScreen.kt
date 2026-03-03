@@ -31,13 +31,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.loginapplication.ui.theme.Black
 import com.example.loginapplication.ui.theme.Blue
 import com.example.loginapplication.ui.theme.White
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ForgetPassword(){
+fun ForgetPassword(navController: NavController){
     var email by remember { mutableStateOf(value = "") }
     var new by remember { mutableStateOf(value = "") }
     var confirm by remember { mutableStateOf(value = "") }
@@ -60,7 +61,9 @@ fun ForgetPassword(){
                         .padding(10.dp)
                 ) {
                     Button(
-                        onClick = {},
+                        onClick = {
+                            navController.navigate(route = "main")
+                        },
 
                         modifier = Modifier
                             .size(90.dp, 70.dp)
@@ -164,8 +167,8 @@ fun ForgetPassword(){
 }
 
 
-@Preview
-@Composable
-fun ForgetPasswordPreview(){
-    ForgetPassword();
-}
+//@Preview
+//@Composable
+//fun ForgetPasswordPreview(){
+//    ForgetPassword();
+//}
