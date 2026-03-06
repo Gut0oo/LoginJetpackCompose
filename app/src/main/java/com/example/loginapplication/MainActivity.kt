@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     }
 
                     composable(route = "register_screen") {
-                        Register()
+                        Register(navController)
                     }
                 }
 

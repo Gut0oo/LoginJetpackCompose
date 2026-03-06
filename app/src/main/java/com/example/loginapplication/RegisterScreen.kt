@@ -1,6 +1,7 @@
 package com.example.loginapplication
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -30,15 +31,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.modifier.modifierLocalOf
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.loginapplication.ui.theme.Blue
 import com.example.loginapplication.ui.theme.White
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Register(){
+fun Register(navController : NavController){
     val username by remember { mutableStateOf (value = "") };
     val fullname by remember { mutableStateOf (value = "") };
     val email by remember { mutableStateOf (value = "") };
@@ -164,11 +167,22 @@ fun Register(){
         ) {
             Text(text = "Register")
         }
+
+        Text(
+            text = "Im already a member",
+            modifier = Modifier
+                .clickable{
+                    navController.navigate(route = "main")
+                },
+            textDecoration = TextDecoration.Underline
+        )
     }
 }
 
+/*
 @Preview
 @Composable
 fun RegisterPreview(){
     Register();
 }
+*/
